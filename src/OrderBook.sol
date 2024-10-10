@@ -66,7 +66,7 @@ contract OrderBook {
         });
         qpSellOrders[_quantity][_price].push(newOrder);
 
-        bitcoin.approve(address(this), _quantity);
+        //bitcoin.approve(address(this), _quantity);
         bitcoin.transferFrom(msg.sender, address(this), _quantity);
     
         if ((qpBuyOrders[_quantity][_price]).length > 0){
@@ -107,7 +107,7 @@ contract OrderBook {
         });
         qpBuyOrders[_quantity][_price].push(newOrder);
 
-        peso.approve(address(this), _price);
+        //peso.approve(address(this), _price);
         peso.transferFrom(msg.sender, address(this), _price);
 
         if ( (qpSellOrders[_quantity][_price]).length > 0 ){
