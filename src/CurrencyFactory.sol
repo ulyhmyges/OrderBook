@@ -5,9 +5,9 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "./Currency.sol";
 import {console} from "forge-std/Script.sol";
 
-// The TokenFactory contract is responsible for creating new Token instances
+// The CurrencyFactory contract is responsible for creating new Token instances
 // It uses OpenZeppelin's AccessControl for role-based access control
-contract TokenFactory is AccessControl {    
+contract CurrencyFactory is AccessControl {    
     // Array to store the addresses of all deployed tokens
     address[] public deployedCurrencies;
 
@@ -33,7 +33,7 @@ contract TokenFactory is AccessControl {
     {
         address newCurrency = address(new Currency(initialSupply, name, symbol, me));
         currencyToSupply[newCurrency] = initialSupply;
-        deployedCurrency.push(newCurrency);
+        deployedCurrencies.push(newCurrency);
         emit CurrencyCreated(initialSupply, name, symbol);
     }
 
